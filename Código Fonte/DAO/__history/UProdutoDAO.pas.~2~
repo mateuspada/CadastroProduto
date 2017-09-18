@@ -1,0 +1,68 @@
+unit UProdutoDAO;
+
+interface
+
+uses
+  FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Data.DB,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, UProduto;
+
+type
+   TProdutoDAO = Class
+   public
+      constructor Create;
+      destructor Destroy; override;
+
+      function InsereCliente  (Query : TFDQuery; Produto : TProduto) : Boolean;
+      function AlteraCliente  (Query : TFDQuery; Produto : TProduto) : Boolean;
+      function ExcluirCliente (Query : TFDQuery; Produto : TProduto) : Boolean;
+   End;
+
+implementation
+
+uses
+   StrUtils, SysUtils, Dialogs;
+
+
+{ TProdutoDAO }
+
+function TProdutoDAO.AlteraCliente(Query: TFDQuery; Produto: TProduto): Boolean;
+begin
+//
+end;
+
+constructor TProdutoDAO.Create;
+begin
+//
+end;
+
+destructor TProdutoDAO.Destroy;
+begin
+
+  inherited;
+end;
+
+function TProdutoDAO.ExcluirCliente(Query: TFDQuery;
+  Produto: TProduto): Boolean;
+begin
+//
+end;
+
+function TProdutoDAO.InsereCliente(Query: TFDQuery; Produto: TProduto): Boolean;
+begin
+   Result := False;
+
+   try
+      Query.ExecSQL('INSERT INTO Produto(Nome, Ativo) VALUES (:Nome,:Ativo)',[Produto.Nome, Produto.Ativo]);
+      Query.Open('SELECT last_insert_rowid() Codigo');
+      Produto.Codigo := Query.FieldByName('Codigo').AsInteger;
+      Query.Close;
+   except
+      Exit;
+   end;
+
+   Result := True;
+end;
+
+end.
