@@ -1,0 +1,7 @@
+__history
+*.vlb
+*.res
+*.stat
+*.local
+*.identcache
+/Código Fonte/Win32

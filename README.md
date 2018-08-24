@@ -1,5 +1,11 @@
 # CadastroProduto
-Cadastro de Produto OO
 
-A Pasta execut�vel cont�m o execut�vel, basta executa-lo.
-E na pasta c�digo fonte, se encontra o c�digo fonte do execut�vel, junto com o banco de dados feito em SQLite.
+Cadastro de produtos feito em Delphi orientado a objeto.
+Projeto realizado para teste de seleção.
+
+- Pasta Executavel: contém os arquivos necessários já compilados - basta utilizar.
+- Pasta Código Fonte: Contém o código fonte do projeto.
+
+Código feito utilizando Delphi VCL aplicando MVC e Orientação a Objeto.
+Framework de conexão a base de dados utilizado: FireDAC
+Banco de dados utilizado: SQLite
